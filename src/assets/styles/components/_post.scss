@@ -9,11 +9,15 @@
         }
     }
     &__meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
         font-size: 1rem;
         margin: 1rem 0;
-        color: var(--text-color-secondary);
+        color: var(--color-text-offset);
 
         @include mq(md) {
+            justify-content: center;
             font-size: 1.25rem;
         }
     }
@@ -24,10 +28,7 @@
     }
     &__status {
         font-weight: 700;
-        color: var(--brand-color-secondary);
-    }
-    &__demo {
-        margin-left: 2rem;
+        color: var(--color-secondary);
     }
     &__content {
         @include container-narrow;
@@ -42,7 +43,7 @@
 
         &__info {
             margin: 1rem 0;
-            color: var(--text-color-secondary);
+            color: var(--color-text-offset);
             font-style: italic;
         }
     }
@@ -51,7 +52,7 @@
 .postsection {
     @include container-narrow;
     padding: 2rem 0;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--color-border);
 
     &__title {
         @extend .smalltitle;

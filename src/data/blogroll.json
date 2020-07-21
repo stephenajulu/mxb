@@ -93,7 +93,7 @@
         "title": "Zach Leatherman",
         "url": "https://www.zachleat.com",
         "feed": "https://www.zachleat.com/web/feed/",
-        "description": "Zach is a web developer working with Filament Group. He's currently fixated on web fonts and making the static site generator Eleventy. His blog has interesting posts about a lot of different topics.",
+        "description": "Zach is a web developer working at Netlify. He's currently fixated on web fonts and making the static site generator Eleventy. His blog has interesting posts about a lot of different topics.",
         "twitter": "zachleat"
     },
     {
@@ -206,5 +206,47 @@
         "feed": "https://bitsofco.de/rss/",
         "description": "Ire is a frontend developer and UI designer from Lagos, Nigeria. Her posts cover a broad range of topics in web development and are an excellent way to keep up with new tech.",
         "twitter": "ireaderinokun"
+    },
+    {
+        "title": "swyx",
+        "url": "https://swyx.io/",
+        "feed": "https://swyx.io/rss.xml/",
+        "description": "Shawn Wang (swyx) is an Infinite Builder, previously working on Developer Experience at Netlify. In his free time he helps people Learn in Public at Egghead.io and /r/reactjs.",
+        "twitter": "swyx"
+    },
+    {
+        "title": "Cassie Evans",
+        "url": "https://www.cassie.codes/",
+        "feed": "https://cassie.codes/feed.xml",
+        "description": "Cassie is a web developer making things at Clearleft, and she also has lots of interesting things to share on her blog and on Codepen. Animation is her specialty.",
+        "twitter": "cassiecodes"
+    },
+    {
+        "title": "Sia Karamalegos",
+        "url": "https://sia.codes",
+        "feed": "https://sia.codes/feed/feed.xml",
+        "description": "Sia is a freelance web developer, a Women Techmakers ambassador, and a co-organizer for GDG New Orleans. She's also a great speaker on web performance and other topics.",
+        "twitter": "TheGreenGreek"
+    },
+    {
+        "title": "Matthew Somerville",
+        "url": "http://dracos.co.uk/",
+        "feed": "http://dracos.co.uk/feed/",
+        "description": "Matthew is a programmer based in Birmingham, UK, where he sings, plays, and is guarded by a inquisitive toddler. His case studies on how to make websites smaller and more resilient are brilliant reads.",
+        "twitter": "dracos"
+    },
+    {
+        "title": "Tantek Çelik",
+        "url": "https://tantek.com/",
+        "feed": "https://tantek.com/updates.atom",
+        "description": "Tantek is the co-founder of IndieWebCamp and currently works on open web standards at Mozilla. Responsible for many CSS and microformat specs, his blog is an absolute treasure trove of knowledge.",
+        "twitter": "t"
+    },
+    {
+        "title": "Tatiana Mac",
+        "url": "https://tatianamac.com/",
+        "feed": "https://tatianamac.com/feed/feed.xml",
+        "description": "Tatiana is an American designer who builds inclusive, accessible, and ethical products with thoughtful practices. She's a wonderful speaker on the topic of ethics in technology, which is increasingly important.",
+        "twitter": "TatianaTMac"
     }
 ]

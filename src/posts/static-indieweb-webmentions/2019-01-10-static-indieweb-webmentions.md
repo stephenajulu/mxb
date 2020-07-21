@@ -1,10 +1,13 @@
 ---
-title: "Static Indieweb pt2: Using Webmentions"
+title: "Indieweb pt2: Using Webmentions in Eleventy"
 slug: "using-webmentions-on-static-sites"
 tags: code
 description: "How to pull interactions from social media platforms like Twitter back to your own site, using Webmentions, webmention.io and Bridgy."
 demo: https://github.com/maxboeck/eleventy-webmentions
 image: cover.jpg
+featured: true
+featuredImage: chat.jpg
+featuredImageColor: "#FFC754"
 ---
 
 <p class="lead">In last week's post, I talked about syndicating content from a static site to Twitter. But getting content out is only half the challenge.</p>
@@ -13,9 +16,11 @@ The real value of social media (apart from the massive ad revenue and dystopian 
 
 ## Hello Webmentions
 
+{% callout "info" %}
 A [Webmention](https://indieweb.org/Webmention) is an open standard for a reaction to something on the web. It's currently in W3C recommendation status. When you link to a website, you can send it a Webmention to notify it. 
 
 It's comparable to pingbacks, except that webmentions contain a lot more information than a simple "ping". They can be used to express likes, reposts, comments or other things. 
+{% endcallout %}
 
 To make a site support webmentions, it needs to declare an endpoint to accept them. That endpoint can be a script hosted on your own server, or in the case of static sites, a third-party service like [webmention.io](https://webmention.io).
 
@@ -158,6 +163,11 @@ Each post will then loop over its webmentions and output them underneath.
 
 You can see the result by scrolling down to the [end of this post](#webmentions) (if there are any replies 😉).
 
+{% signup "By the way..." %}
+I'm running an email list for people interested in personal websites and the IndieWeb.
+If you enjoy that kind of stuff, you can join here and I'll notify you whenever I publish a new post. No strings attached, unsubscribe anytime.
+{% endsignup %}
+
 ## Client-Side Rendering
 
 Because static sites are, well, static - it's possible that new mentions have happened since the last build. To keep the webmention section up-to-date, there's an extra step we can take: client side rendering.
@@ -188,17 +198,17 @@ if (rootElement) {
 }
 ```
 
-And that's it! There are of course still some missing pieces, most notably the ability to send outgoing webmentions to URLs linked to in your own blog posts. ~~I might have to look into that.~~
+{% callout "info" %}
+I also made an [Eleventy Starter Template](https://github.com/maxboeck/eleventy-webmentions) with basic webmention support, using some of the techniques in this post. Check it out!
+{% endcallout %}
+
+There are of course still some missing pieces, most notably the ability to send outgoing webmentions to URLs linked to in your own blog posts. ~~I might have to look into that.~~
 
 ## Update: Outgoing Webmentions!
 
 [Remy Sharp](https://remysharp.com/) has recently published a very useful new tool that takes care of handling **outgoing** webmentions for you. [Webmention.app](https://webmention.app/) is a platform agnostic service that will check a given URL for links to other sites, discover if they support webmentions, then send a webmention to the target. 
 
 You can use that service in a number of ways, including your own command line. If you host your site on Netlify though, it's also very straightforward to integrate it [using deployment webhooks](https://webmention.app/docs#how-to-integrate-with-netlify)!
-
-## Eleventy Starter
-
-I made an [Eleventy Starter Template](https://github.com/maxboeck/eleventy-webmentions) with basic webmention support, using some of the techniques in this post. Check it out!
 
 ## Jekyll Plugin
 

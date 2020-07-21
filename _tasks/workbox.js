@@ -7,9 +7,9 @@ const workboxConfig = {
     globPatterns: [
         'index.html',
         '{404,about,blog,notes}/*.html',
-        'assets/{css,fonts,icons}/*',
+        'assets/{css,icons}/*',
+        'assets/fonts/noe-display*',
         'assets/images/avatar-default.jpg',
-        'assets/images/avatar2.jpg',
         'assets/js/main.js',
         'assets/js/webmentions.js'
     ],
@@ -18,7 +18,7 @@ const workboxConfig = {
     skipWaiting: true
 }
 
-gulp.task('workbox', function() {
+gulp.task('workbox', function () {
     return workbox
         .generateSW(workboxConfig)
         .then(({ warnings }) => {
@@ -28,7 +28,7 @@ gulp.task('workbox', function() {
             }
             console.info('Service worker generation completed.')
         })
-        .catch(error => {
+        .catch((error) => {
             console.warn('Service worker generation failed:', error)
         })
 })

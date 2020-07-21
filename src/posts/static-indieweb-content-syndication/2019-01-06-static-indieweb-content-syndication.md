@@ -1,5 +1,5 @@
 ---
-title: "Static Indieweb pt1: Syndicating Content"
+title: "Indieweb pt1: Syndicating Content to Twitter"
 slug: "syndicating-content-to-twitter-with-netlify-functions"
 tags: code
 description: "How to automatically publish content from a static site on Twitter, using Eleventy and Netlify's lambda functions."
@@ -52,7 +52,9 @@ Now for the tricky part: we need to write a lambda function to push new notes to
 * [Build and deploy a serverless function to Netlify](https://scotch.io/tutorials/build-and-deploy-a-serverless-function-to-netlify) (scotch.io)
 * [Lambda functions playground](https://functions-playground.netlify.com/) (netlify.com)
 
-💡 _Hint: also check out the [netlify-lambda cli](https://www.npmjs.com/package/netlify-lambda), a very handy tool to test and build your functions in development._
+{% callout "tip" %}
+Be sure to also check out the [netlify-lambda cli](https://www.npmjs.com/package/netlify-lambda), a very handy tool to test and build your functions in development.
+{% endcallout %}
 
 To trigger our custom function everytime a new version of the site was successfully deployed, we just need to name it `deploy-succeeded.js`. Netlify will then automatically fire it after each new build, while also making sure it's not executable from the outside.
 
@@ -170,6 +172,11 @@ Hopefully that all worked, and you should end up with something like this in you
 <blockquote class="twitter-tweet" data-lang="de"><p lang="en" dir="ltr">I did some housekeeping over the holidays and switched my website to <a href="https://twitter.com/eleven_ty?ref_src=twsrc%5Etfw">@eleven_ty</a> and <a href="https://twitter.com/Netlify?ref_src=twsrc%5Etfw">@Netlify</a> !<br><br>👉 <a href="https://t.co/oq0OyPyjRs">https://t.co/oq0OyPyjRs</a></p>&mdash; Max Böck (@mxbck) <a href="https://twitter.com/mxbck/status/1081178633513910272?ref_src=twsrc%5Etfw">January 4, 2019</a></blockquote>
 
 🎉 You can find the [finished lambda function](https://github.com/maxboeck/mxb/blob/master/_lambda/deploy-succeeded.js) along with the rest of the source code for this site on Github.
+
+{% signup "By the way..." %}
+I'm running an email list for people interested in personal websites and the IndieWeb!
+If you enjoy that kind of stuff, you can join here and I'll notify you whenever I publish a new post. No strings attached, unsubscribe anytime.
+{% endsignup %}
 
 ## Further Resources
 

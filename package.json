@@ -21,15 +21,16 @@
   ],
   "dependencies": {
     "dompurify": "^2.0.7",
+    "focus-trap": "^5.1.0",
     "focus-visible": "^5.0.2",
     "infinite-scroll": "^3.0.5",
     "leaflet": "^1.5.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "markdown-it-anchor": "^5.0.2",
     "preact": "^8.4.2"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.10.0",
+    "@11ty/eleventy": "0.11.0",
     "@11ty/eleventy-plugin-rss": "^1.0.3",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
     "@babel/core": "^7.2.0",

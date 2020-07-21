@@ -9,8 +9,13 @@ const markdownItAnchor = require('markdown-it-anchor')
 const filters = require('./_eleventy/filters.js')
 const shortcodes = require('./_eleventy/shortcodes.js')
 const isProduction = process.env.NODE_ENV === 'production'
+const globs = {
+    posts: 'src/posts/**/*.md',
+    drafts: 'src/drafts/**/*.md',
+    notes: 'src/notes/*.md'
+}
 
-const anchorSlugify = s =>
+const anchorSlugify = (s) =>
     encodeURIComponent(
         'h-' +
             String(s)
@@ -20,16 +25,16 @@ const anchorSlugify = s =>
                 .replace(/\s+/g, '-')
     )
 
-module.exports = function(config) {
+module.exports = function (config) {
     // Filters
-    Object.keys(filters).forEach(filterName => {
+    Object.keys(filters).forEach((filterName) => {
         config.addFilter(filterName, filters[filterName])
     })
 
     // Shortcodes
-    Object.keys(shortcodes).forEach(shortCodeName => {
-        config.addShortcode(shortCodeName, shortcodes[shortCodeName])
-    })
+    config.addShortcode('icon', shortcodes.icon)
+    config.addPairedShortcode('signup', shortcodes.signup)
+    config.addPairedShortcode('callout', shortcodes.callout)
 
     // Plugins
     config.addPlugin(pluginRss)
@@ -67,32 +72,35 @@ module.exports = function(config) {
     )
 
     // Collections: Navigation
-    config.addCollection('nav', function(collection) {
-        return collection.getFilteredByTag('nav').sort(function(a, b) {
+    config.addCollection('nav', function (collection) {
+        return collection.getFilteredByTag('nav').sort(function (a, b) {
             return a.data.navorder - b.data.navorder
         })
     })
 
     // Collections: Posts
-    config.addCollection('posts', function(collection) {
-        const pathsRegex = /\/posts\/|\/drafts\//
+    config.addCollection('posts', function (collection) {
         return collection
-            .getAllSorted()
-            .filter(item => item.inputPath.match(pathsRegex) !== null)
-            .filter(item => item.data.permalink !== false)
-            .filter(item => !(item.data.draft && isProduction))
+            .getFilteredByGlob([globs.posts, globs.drafts])
+            .filter((item) => item.data.permalink !== false)
+            .filter((item) => !(item.data.draft && isProduction))
+    })
+
+    // Collections: Featured Posts
+    config.addCollection('featured', function (collection) {
+        return collection
+            .getFilteredByGlob(globs.posts)
+            .filter((item) => item.data.featured)
+            .sort((a, b) => b.date - a.date)
     })
 
     // Collections: Notes
-    config.addCollection('notes', function(collection) {
-        return collection
-            .getAllSorted()
-            .filter(item => item.inputPath.match(/\/notes\//) !== null)
-            .reverse()
+    config.addCollection('notes', function (collection) {
+        return collection.getFilteredByGlob(globs.notes).reverse()
     })
 
     // Minify HTML Output
-    config.addTransform('htmlmin', function(content, outputPath) {
+    config.addTransform('htmlmin', function (content, outputPath) {
         if (outputPath && outputPath.endsWith('.html') && isProduction) {
             return htmlmin.minify(content, {
                 useShortDoctype: true,

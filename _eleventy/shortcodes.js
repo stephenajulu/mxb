@@ -1,11 +1,21 @@
-module.exports = {
-    icon: function(iconName, useInline) {
-        const spriteUrl = '/assets/icons/icons.sprite.svg'
-        const iconId = `#icon-${iconName}`
-        const href = useInline ? iconId : spriteUrl + iconId
+const generators = require('./generators.js')
 
-        return `<svg class="icon icon--${iconName}" role="img" aria-hidden="true" width="24" height="24">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="${href}"></use>
-                </svg>`
+module.exports = {
+    icon: function (iconName, useInline) {
+        return generators.icon(iconName, useInline)
+    },
+
+    signup: function (content, title = 'Join the Mailing List') {
+        const source = this.page.url
+        const defaultText = `
+        People on the list will be notified first when new posts are published.
+        I'll send emails about once a month and you can unsubscribe at any time.`
+
+        const text = content.length ? content.trim() : defaultText.trim()
+        return generators.signupSection(title, text, source)
+    },
+
+    callout: function (content, type = 'info') {
+        return generators.callout(content, type)
     }
 }

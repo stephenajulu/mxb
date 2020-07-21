@@ -1,11 +1,15 @@
 ---
-title: Emergency Website Kit
+title: The Emergency Website Kit
+slug: emergency-website-kit
 tags: code
 image: cover.jpg
 demo: https://emergency-site.dev/
+featured: true
+featuredImage: emergency.jpg
+featuredImageColor: "#5EBCB4"
 ---
 
-In cases of emergency, many organizations need a quick way to publish critical information. But existing (CMS) websites are often unable to handle sudden spikes in traffic.
+<p class="lead">In cases of emergency, many organizations need a quick way to publish critical information. But existing (CMS) websites are often unable to handle sudden spikes in traffic.</p>
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Just received a shelter-in-place emergency alert with a web address for more information. Clicked the link. The site is down. All emergency sites should be static.</p>&mdash; Nicholas C. Zakas (@slicknet) <a href="https://twitter.com/slicknet/status/1239972949819404291?ref_src=twsrc%5Etfw">March 17, 2020</a></blockquote>
 
@@ -30,29 +34,30 @@ The site contains only the bare minimum - no webfonts, no tracking, no unnecessa
 
 The end result is just a set of static files that can be easily hosted on cloud infrastructure and put on a CDN. Netlify does this out of the box, but other providers or privately owned servers are possible as well.
 
-You can find the [project source on Github](https://github.com/maxboeck/emergency-site) as well as a [demo site here](https://emergency-site.dev/).
+{% callout "info" %}
+You can find the full [project source on Github](https://github.com/maxboeck/emergency-site) as well as a [demo site here](https://emergency-site.dev/).
+{% endcallout %}
+
+{% signup "By the way..." %}
+I'm running an email list for people interested in front-end development and static sites!
+If you enjoy that kind of stuff, you can join here and I'll notify you whenever I publish a new post. No strings attached, unsubscribe anytime.
+{% endsignup %}
 
 ## Not Everyone is a Developer
 
-I'm aware that not everyone, especially the people in charge of setting up websites like this, is familiar with things like `Node` or the command line. I want to keep the barrier to entry as low as possible, so I'm currently working on two ideas:
-
-### 1. No-Code Setup
+I'm aware that not everyone, especially the people in charge of setting up websites like this, is familiar with things like `Node` or the command line. I want to keep the barrier to entry as low as possible.
 
 Taking a hint from the excellent [servicerelief.us](https://www.servicerelief.us/start) project, it is possible to configure the template in such a way that all configuration can be done via environment variables.
 
 These are set in the Netlify UI when the site is first deployed, meaning a user would only need a free Github and Netlify account to get started - without ever touching a line of code or having to mess around with npm or Eleventy itself. The content editing can all be done through Netlify CMS, which offers a much more useable graphical interface.
 
-### 2. Volunteer Devs
-
-Another great idea came from [Stephanie Walter](https://stephaniewalter.design/) on Twitter:
-
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">True, but at some point there will always be single points of failures. I still like the idea of providing something simple to organizations, I just wonder how technical most people in those are. I wonder if there&#39;s some places to put in touch organizations with devs to help</p>&mdash; Stephanie W. (@WalterStephanie) <a href="https://twitter.com/WalterStephanie/status/1243516998790889473?ref_src=twsrc%5Etfw">March 27, 2020</a></blockquote>
-
-Since even dealing with the unfamiliar landscapes of Github and Netlify might be a big ask for many non-technical organizations, it might be worth considering the help of volunteer developers.
-
-The initial setup is a 10-minute job for devs who understand the stack. Organizations could get in touch with a volunteer to help them get the site online, then take over and update the content.
-
-## Get in Touch!
-
 In the meantime, if you want to set up an emergency website and need help to get started, [let me know](mailto:hello@mxb.dev)!
+
+## Update 25.04.
+
+I recently did a short talk about this project at an online meetup. You can [watch it here](https://www.youtube.com/watch?v=0WCNOHCuqYU):
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/0WCNOHCuqYU?start=5" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 
